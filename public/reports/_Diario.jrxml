@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Diario" columnCount="2" pageWidth="595" pageHeight="842" columnWidth="277" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d0a2266b-6950-42c0-b471-cf296a859f1c">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.xml"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT content FROM themes]]>
+	</queryString>
+	<field name="content" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="content"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="themes"/>
+	</field>
+	<background>
+		<band height="800">
+			<line>
+				<reportElement x="280" y="160" width="1" height="580" uuid="49f4b642-7a81-4ffd-8b62-2e856729f633">
+					<printWhenExpression><![CDATA[$V{PAGE_NUMBER}.intValue() == 1? new Boolean(true) : new Boolean(false)]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="280" y="40" width="1" height="705" uuid="8c75f013-b200-40a4-b60e-3ab56e4c6288">
+					<printWhenExpression><![CDATA[$V{PAGE_NUMBER}.intValue() != 1? new Boolean(true) : new Boolean(false)]]></printWhenExpression>
+				</reportElement>
+			</line>
+		</band>
+	</background>
+	<title>
+		<band height="84" splitType="Stretch">
+			<image scaleImage="RealSize" hAlign="Center">
+				<reportElement x="0" y="17" width="560" height="50" uuid="a14f469f-5f49-418c-9eb3-3b37b737d426"/>
+				<imageExpression><![CDATA["/var/www/diario-oficial/public/reports/topo.JPG"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="49" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="12" width="550" height="14" uuid="ddeaefae-faae-49fe-8856-190a22dd77fc"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Amazonas , 05 de Abril de 2019 • Diário Oficial dos Municípios do Estado do Amazonas • ANO X | Nº 2331"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="Float" x="0" y="5" width="550" height="1" uuid="c7d72a14-4143-4e0c-95d3-15632813e73e"/>
+			</line>
+			<line>
+				<reportElement positionType="Float" x="5" y="27" width="550" height="1" uuid="141a5e3c-ff74-41e3-a7d7-c9734b4e5a78"/>
+			</line>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="49" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="10" y="0" width="260" height="20" uuid="8805075c-b7a9-4813-83aa-27561190725f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1e995aca-316f-418e-af37-05e31eca0a5f"/>
+				</reportElement>
+				<textElement textAlignment="Justified" markup="html">
+					<paragraph lineSpacing="Double"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{content}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="52" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="22" width="560" height="30" forecolor="#2681EB" uuid="698bcd7a-3681-413f-9c28-882c9ecca8b2"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[transparencia.diretoriodigital.tk]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="525" y="19" width="30" height="23" uuid="5cc1c4b8-4560-49f0-8123-57d5478eba19"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="80" splitType="Stretch"/>
+	</summary>
+</jasperReport>

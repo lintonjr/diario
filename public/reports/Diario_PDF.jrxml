@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Diario_PDF" pageWidth="595" pageHeight="842" sectionType="Part" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" uuid="d2716064-8ae4-40cf-a575-33afba400e3a">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.xml"/>
+	<property name="net.sf.jasperreports.print.create.bookmarks" value="true"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="daily_id" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[7]]></defaultValueExpression>
+	</parameter>
+	<parameter name="txtTitle" class="java.lang.String" isForPrompting="false"/>
+	<queryString language="SQL">
+		<![CDATA[select id from dailies where id=$P{daily_id}]]>
+	</queryString>
+	<field name="id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dailies"/>
+	</field>
+	<detail>
+		<part uuid="b708522e-a6a2-4d93-80c8-90f9188e8da2">
+			<p:subreportPart xmlns:p="http://jasperreports.sourceforge.net/jasperreports/parts" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/parts http://jasperreports.sourceforge.net/xsd/parts.xsd">
+				<subreportParameter name="REPORT_CONNECTION">
+					<subreportParameterExpression><![CDATA[$P{REPORT_CONNECTION}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="daily_id">
+					<subreportParameterExpression><![CDATA[$P{daily_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="txtTitle">
+					<subreportParameterExpression><![CDATA[$P{txtTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA["/var/www/diario-oficial/public/reports/Diario_09cm.jasper"]]></subreportExpression>
+			</p:subreportPart>
+		</part>
+		<part uuid="61a31016-c4da-483a-a83c-c31662d1bae1">
+			<p:subreportPart xmlns:p="http://jasperreports.sourceforge.net/jasperreports/parts" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/parts http://jasperreports.sourceforge.net/xsd/parts.xsd">
+				<subreportParameter name="REPORT_CONNECTION">
+					<subreportParameterExpression><![CDATA[$P{REPORT_CONNECTION}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="daily_id">
+					<subreportParameterExpression><![CDATA[$P{daily_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="txtTitle">
+					<subreportParameterExpression><![CDATA[$P{txtTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA["/var/www/diario-oficial/public/reports/Diario_19cm.jasper"]]></subreportExpression>
+			</p:subreportPart>
+		</part>
+		<part uuid="674f197e-c981-4a99-9edd-59106c892c9b">
+			<p:subreportPart xmlns:p="http://jasperreports.sourceforge.net/jasperreports/parts" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/parts http://jasperreports.sourceforge.net/xsd/parts.xsd">
+				<subreportParameter name="REPORT_CONNECTION">
+					<subreportParameterExpression><![CDATA[$P{REPORT_CONNECTION}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="daily_id">
+					<subreportParameterExpression><![CDATA[$P{daily_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="txtTitle">
+					<subreportParameterExpression><![CDATA[$P{txtTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA["/var/www/diario-oficial/public/reports/Diario_27cm.jasper"]]></subreportExpression>
+			</p:subreportPart>
+		</part>
+	</detail>
+</jasperReport>
